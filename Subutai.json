@@ -1,12 +1,12 @@
 {
     "name": "${environmentName}",
     "description": "Grav CMS + Admin",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "author": "https://github.com/lbthomsen",
     "containers": [
         {
             "hostname": "${webContainerName}",
-            "template": "debian-stretch",
+            "template": "debian-buster",
             "peer-criteria": "HTTP-GROUP",
             "size": "${containerSize}",
             "port-mapping": [

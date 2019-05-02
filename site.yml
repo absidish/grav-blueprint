@@ -26,15 +26,14 @@
       name: 
         - unzip
         - apache2
-        - php7.0
-        - php7.0-cgi
-        - php7.0-mbstring
-        - php7.0-curl
-        - php7.0-ctype
-        - php7.0-gd
-        - php7.0-xml
-        - php7.0-zip
-        - php
+        - php7.3
+        - php7.3-cgi
+        - php7.3-mbstring
+        - php7.3-curl
+        - php7.3-ctype
+        - php7.3-gd
+        - php7.3-xml
+        - php7.3-zip
         - sudo
         - apache2-suexec-custom
         - libapache2-mod-fcgid
@@ -72,8 +71,8 @@
 
   - name: Copy fcgi
     template:
-      src: files/php7.0.fcgi
-      dest: /home/grav/fcgi-bin/php7.0.fcgi
+      src: files/php7.3.fcgi
+      dest: /home/grav/fcgi-bin/php7.3.fcgi
       owner: grav
       group: users
       mode: "0755"
