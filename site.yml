@@ -120,6 +120,11 @@
       state: present
       regexp: '^PrivateTmp=true'
       line: 'PrivateTmp=false'  
+      
+  - name: Reload service httpd, in all cases
+    service:
+      name: apache2
+      state: reloaded    
 
   - name: Configure apache suexec
     template:
