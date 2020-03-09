@@ -114,17 +114,11 @@
       dest: /etc/apache2/sites-available/000-default.conf
     notify: restart apache
     
-  - name: Set PrivateTmp false
-    lineinfile:
-      dest: /lib/systemd/system/apache2.service
-      state: present
-      regexp: '^PrivateTmp=true'
-      line: 'PrivateTmp=false'  
+  - name: Run a command using a templated variable (always use quote filter to avoid injection)
+    shell: sed -i -e 's,PrivateTmp=true,PrivateTmp=false\nNoNewPrivileges=yes,g' /lib/systemd/system/apache2.service
       
-  - name: Reload service httpd, in all cases
-    service:
-      name: apache2
-      state: reloaded    
+  - name: reload services
+    shell: systemctl daemon-reload
 
   - name: Configure apache suexec
     template:
