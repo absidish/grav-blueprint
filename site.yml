@@ -113,6 +113,13 @@
       src: files/default.conf
       dest: /etc/apache2/sites-available/000-default.conf
     notify: restart apache
+    
+  - name: Set PrivateTmp false
+    lineinfile:
+      dest: /lib/systemd/system/apache2.service
+      state: present
+      regexp: '^PrivateTmp=true'
+      line: 'PrivateTmp=false'  
 
   - name: Configure apache suexec
     template:
